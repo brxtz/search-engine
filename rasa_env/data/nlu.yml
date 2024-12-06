@@ -1,0 +1,146 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - whatcha doin
+    - greetings
+    - afternoon
+    - yo
+
+- intent: search_query
+  examples: |
+    - Search for climate change research.
+    - Show me cat videos.
+    - Find local coffee shops.
+    - Look up best hiking trails near me.
+    - Can you get Python tutorials?
+    - I want to learn about quantum computing.
+    - Get information on global warming effects.
+    - Search University of Missouri campus events.
+    - What are University of Missouri alumni achievements?
+    - Look up courses at Mizzou.
+
+- intent: university_info #queries related to mizzou
+  examples: |
+    - Tell me about the University of Missouri.
+    - What are the popular majors at Mizzou?
+    - Show me University of Missouri admission requirements.
+    - Find library hours at MU.
+    - Where is the Mizzou campus bookstore?
+    - Search for Mizzou Tigers football schedule.
+    - What scholarships does Mizzou offer?
+    - Get University of Missouri academic calendar.
+    - How many students are there at the University of Missouri?
+    - When was the University of Missouri established?
+    - How old is Mizzou?
+    - Did Mizzou find Homecoming?
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - logout
+    - cya
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you real?
+    - what's your name?
+    - are you fake?
+    - where are you?
+    - what are you doing?
+    - who are you?
+
+- intent: request_table
+  examples: |
+    - I want information about [business](requested_table)
+    - I want information about [information technology](requested table)
+    - get [business](requested_table) data
+
+- intent: query_table
+  examples: |
+    - Show me business data
+    - Query business table
+    - Get me data for business degree
+    - Show me information technology data
+    - Query information technology data
+    - Get me data for information technology degree

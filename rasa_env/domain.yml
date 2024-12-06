@@ -1,0 +1,100 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_for_records
+  - search_query
+  - ask_for_clarity
+  - unclear_query
+  - retry
+  - real_time_query
+  - refine_search
+  - no_results_found
+  - product_query
+  - location_query
+  - datetime_query
+  - event_query
+  - ask_feedback
+  - refine_search_based_on_feedback
+  - action_default_fallback
+  - action_unlikely_intent
+  - query_table
+  - request_table
+
+entities:
+  - requested_table
+
+
+slots:
+  user_id:
+    type: text
+    mappings:
+      - type: from_text
+        influence_conversation: false
+
+
+  refined_query:
+    type: text
+    mappings:
+      - type: from_text
+        influence_conversation: false
+
+
+  requested_table:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: requested_table
+        influence_conversation: true
+
+  records_found:
+    type: bool
+    mappings:
+      - type: from_text
+        value: false
+        influence_conversation: false
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_no_records_found:
+  - text: "Sorry, I can't find any matching records from the Database"
+
+  utter_found_records:
+  - text: "Here are the records that I found: {records}"
+
+
+actions:
+  - action_query_mysql
+  - ask_for_clarity_if_needed
+  - action_refine_query
+  - present_refined_results
+  - action_fallback
+  - action_search_searxng
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-requested table",
+      "2": "I-requested table",
+      "3": "L-requested table",
+      "4": "U-requested table",
+      "5": "B-requested_table",
+      "6": "I-requested_table",
+      "7": "L-requested_table",
+      "8": "U-requested_table",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-requested table": 1,
+      "I-requested table": 2,
+      "L-requested table": 3,
+      "U-requested table": 4,
+      "B-requested_table": 5,
+      "I-requested_table": 6,
+      "L-requested_table": 7,
+      "U-requested_table": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

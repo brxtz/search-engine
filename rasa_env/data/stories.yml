@@ -1,0 +1,228 @@
+version: "3.1"
+
+
+stories:
+#  - story: happy path
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: mood_great
+#      - action: utter_happy
+#      - action: utter_excitement
+
+
+#  - story: sad path 1
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: mood_unhappy
+#      - action: utter_cheer_up
+#      - action: utter_did_that_help
+#      - intent: affirm
+#      - action: utter_happy
+
+
+#  - story: sad path 2
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: mood_unhappy
+#      - action: utter_cheer_up
+#      - action: utter_did_that_help
+#      - intent: deny
+#      - action: utter_goodbye
+
+
+#  - story: search for latest new
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: search_query
+#      - action: search_for_news
+#      - action: present_news_results
+#      - intent: affirm
+#      - action: offer_more_results
+
+
+#  - story: search for product recommendations
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: product_query
+#      - action: recommend_products
+#      - intent: affirm
+#      - action: ask_for_feedback
+
+
+#  - story: recommend products based on mood
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: mood_great
+#      - action: utter_excited_recommendations
+#      - intent: product_query
+#      - action: recommend_products
+#      - action: suggest_related_items
+
+
+#  - story: search for events by date
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: event_query
+#      - action: parse_event_date
+#      - action: show_events_on_date
+
+
+#  - story: fallback response
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: unclear_query
+#      - action: ask_for_clarity_if_needed
+#      - intent: retry
+#      - action: retry_search
+
+
+#  - story: post-interaction feedback
+#    steps:
+#      - intent: search_query
+#      - action: search_for_results
+#      - action: present_search_results
+#      - intent: ask_feedback
+#      - action: collect_feedback
+#      - intent: affirm
+#      - action: refine_search_results
+
+
+#  - story: personalized recommendations
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: product_query
+#      - action: personalize_recommendations
+#      - action: show_recommended_products_based_on_profile
+
+
+  - story: multi-turn conversation for search
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: search_query
+      - action: ask_for_clarity_if_needed
+      - intent: refine_search
+      - action: present_refined_results
+
+
+#  - story: weather query
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: weather_query
+#      - action: fetch_weather_data_from_api
+#      - action: present_weather_forecast
+
+
+ # - story: search with location-based results
+   # steps:
+    #  - intent: greet
+     # - action: utter_greet
+      #- intent: location_query
+     # - action: search_by_location
+     # - action: present_location_results
+
+
+#  - story: search with datetime recognition
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: datetime_query
+#      - action: search_by_datetime
+#      - action: present_datetime_results
+
+
+#  - story: product search with buttons
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: product_query
+#      - action: show_product_buttons
+#      - intent: select_product
+#      - action: display_product_details
+
+
+#  - story: recommend based on user feedback
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: product_query
+#      - action: refine_search_based_on_feedback
+#      - action: present_refined_product_results
+#      - intent: affirm-
+#      - action: show_more_options
+
+
+#  - story: handle API integration for real-time data
+#    steps:
+#      - intent: greet
+#      - action: utter_greet
+#      - intent: real_time_query
+#      - action: fetch_real_time_data_from_api
+#      - action: present_real_time_results
+
+
+  - story: user asks for records and finds some
+    steps:
+      - intent: ask_for_records
+      - action: action_query_mysql
+      - slot_was_set:
+        - records_found: true
+      - action: utter_found_records 
+
+
+  - story: query for business table
+    steps:
+      - intent: request_table
+        entities:
+          - entity: requested_table
+            value: "business"
+      - action: action_query_mysql
+
+  - story: query for IT table
+    steps:
+      - intent: request_table
+        entities:
+          - entity: requested_table 
+            value: "information technology"
+      - action: action_query_mysql
+
+  - story: user asks for records and finds none
+    steps:
+      - intent: ask_for_records
+      - action: action_query_mysql
+      - slot_was_set:
+        - records_found: false
+      - action: utter_no_records_found
+
+        
+  - story: refined search query
+    steps:
+      - intent: search_query
+      - action: action_refine_query
+      - action: action_search_searxng  
+
+
+  - story: query business data
+    steps:
+      - intent: query_table
+        entities:
+          - requested_table: "business"
+      - action: action_query_mysql
+
+
+  - story: query information technology data
+    steps:
+      - intent: query_table
+        entities:
+          - requested_table: "information technology"
+      - action: action_query_mysql
